@@ -8,10 +8,10 @@ import pages.ResultsPage;
 public class TestDojoHomePage extends DojoTest{
 
 
-    DojoHomePage objDojoHomePage;
-    ResultsPage objResultsPage;
+     DojoHomePage objDojoHomePage;
+     ResultsPage objResultsPage;
 
-    @Test(priority = 0)
+    @Test
     public void test_Home_Page_Search(){
 
         objDojoHomePage = new DojoHomePage(driver);

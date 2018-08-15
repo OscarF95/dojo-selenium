@@ -1,22 +1,23 @@
 package factorypages;
 
+import bases.BasePage;
+import bases.PagesFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class FactoryResultsPage {
-    WebDriver driver;
+public class FactoryResultsPage extends BasePage {
 
     @FindBy(className = "postSummary__titleLink")
     WebElement resultsPageTitle;
 
-    public FactoryResultsPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public FactoryResultsPage(WebDriver webDriver, PagesFactory pagesFactory){
+        super(webDriver, pagesFactory);
     }
 
     public String getSearchText(){
-        return resultsPageTitle.getText();
+        return getText(resultsPageTitle);
     }
+
 }

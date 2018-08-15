@@ -1,29 +1,39 @@
 package bases;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class BasePage {
-    WebDriver driver;
+public abstract class BasePage extends PagesFactory{
+    @FindBy(id = "s")
+    WebElement searchBox;
 
-    public BasePage(WebDriver driver){
-        this.driver = driver;
+    private PagesFactory _pagesFactory;
+    private WebDriver _webDriver;
+
+    public BasePage(WebDriver webDriver, PagesFactory pagesFactory){
+        super(webDriver);
+        this._webDriver = webDriver;
+        this._pagesFactory = pagesFactory;
     }
 
-    public String getElementText(String elementText){
-        return driver.findElement(By.linkText(elementText)).getText();
+    public void clickElement(WebElement webElement){
+        webElement.click();
     }
 
-    public void clickElementById(String buttonId){
-        driver.findElement(By.id(buttonId)).click();
+    public String getText(WebElement webElement){
+        return webElement.getText();
     }
 
-    public void clickElementByClass(String buttonClass){
-        driver.findElement(By.className(buttonClass)).click();
+    public void inputText(WebElement webElement, String inputText){
+        webElement.sendKeys(inputText);
     }
 
-    public void inputText(String stringId, String inputText){
-        driver.findElement(By.id(stringId)).sendKeys(inputText);
+    public PagesFactory withPage(){
+        return _pagesFactory;
     }
 
+    public Boolean isElementPresent(WebElement webElement) {
+        return webElement.isDisplayed();
+    }
 }

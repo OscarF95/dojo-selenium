@@ -1,12 +1,13 @@
 package factorypages;
 
+import bases.BasePage;
+import bases.PagesFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class FactoryDojoHomePage {
-    WebDriver driver;
+public class FactoryDojoHomePage extends BasePage {
 
     @FindBy(linkText = "WATCH AN INTERVIEW!")
     WebElement interviewLink;
@@ -14,29 +15,25 @@ public class FactoryDojoHomePage {
     @FindBy(id = "s")
     WebElement searchBox;
 
-    @FindBy(id = "searchSubmit")
+    @FindBy(id = "searchsubmit")
     WebElement searchButton;
 
-    public FactoryDojoHomePage(WebDriver driver){
-        this.driver = driver;
-
-        PageFactory.initElements(driver, this);
+    public FactoryDojoHomePage(WebDriver webDriver, PagesFactory pagesFactory){
+        super(webDriver, pagesFactory);
     }
 
-    public String getInterviewLinkText(){
-        return interviewLink.getText();
+    public FactoryDojoHomePage clickSearch(){
+        clickElement(searchButton);
+        return withPage().factoryDojoHomePage();
     }
 
-    public void search(String searchString){
-        searchBox.sendKeys(searchString);
+    public FactoryDojoHomePage searchInDojoHomePage(String searchString){
+        inputText(searchBox, searchString);
+        clickElement(searchButton);
+        return withPage().factoryDojoHomePage();
     }
 
-    public void clickSearch(){
-        searchButton.click();
-    }
-
-    public void searchInDojoHomePage(String searchString){
-        this.search(searchString);
-        this.clickSearch();
+    public Boolean isInterviewLinkPresent(){
+        return isElementPresent(interviewLink);
     }
 }

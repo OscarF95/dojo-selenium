@@ -18,13 +18,15 @@ public class FactoryDojoHomePage extends BasePage {
     @FindBy(id = "searchsubmit")
     WebElement searchButton;
 
+    @FindBy(linkText = "Interviews")
+    WebElement interviewsMenuLink;
+
+    @FindBy(tagName = "h1")
+    WebElement interviewsTitle;
+
+
     public FactoryDojoHomePage(WebDriver webDriver, PagesFactory pagesFactory){
         super(webDriver, pagesFactory);
-    }
-
-    public FactoryDojoHomePage clickSearch(){
-        clickElement(searchButton);
-        return withPage().factoryDojoHomePage();
     }
 
     public FactoryDojoHomePage searchInDojoHomePage(String searchString){
@@ -33,7 +35,17 @@ public class FactoryDojoHomePage extends BasePage {
         return withPage().factoryDojoHomePage();
     }
 
+    public FactoryDojoHomePage goToInterviews(){
+        clickElement(interviewsMenuLink);
+        return withPage().factoryDojoHomePage();
+    }
+
     public Boolean isInterviewLinkPresent(){
         return isElementPresent(interviewLink);
     }
+
+    public String getInterviewsTitle(){
+        return getText(interviewsTitle);
+    }
+
 }

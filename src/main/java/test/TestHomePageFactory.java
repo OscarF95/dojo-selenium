@@ -8,7 +8,6 @@ public class TestHomePageFactory extends BaseTestCase {
 
     @Test
     public void test_Home_Page_Search(){
-
         factoryDojoHomePage = goToWebsite(website);
         Assert.assertTrue(factoryDojoHomePage.isInterviewLinkPresent());
 
@@ -21,5 +20,9 @@ public class TestHomePageFactory extends BaseTestCase {
 
         factoryDojoHomePage.goToInterviews();
         Assert.assertEquals(factoryDojoHomePage.getInterviewsTitle(),"Interviews");
+        factoryDojoHomePage.goToPreviousPage();
+
+        factoryDojoHomePage.goToUpcoming();
+        Assert.assertEquals(factoryDojoHomePage.getUpcomingTitle(), "Upcoming Interviews");
     }
 }

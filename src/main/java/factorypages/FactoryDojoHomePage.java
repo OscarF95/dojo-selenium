@@ -21,8 +21,11 @@ public class FactoryDojoHomePage extends BasePage {
     @FindBy(linkText = "Interviews")
     WebElement interviewsMenuLink;
 
+    @FindBy(linkText = "Upcoming")
+    WebElement upcomingMenuLink;
+
     @FindBy(tagName = "h1")
-    WebElement interviewsTitle;
+    WebElement pagesTitle;
 
 
     public FactoryDojoHomePage(WebDriver webDriver, PagesFactory pagesFactory){
@@ -40,12 +43,21 @@ public class FactoryDojoHomePage extends BasePage {
         return withPage().factoryDojoHomePage();
     }
 
+    public FactoryDojoHomePage goToUpcoming(){
+        clickElement(upcomingMenuLink);
+        return withPage().factoryDojoHomePage();
+    }
+
     public Boolean isInterviewLinkPresent(){
         return isElementPresent(interviewLink);
     }
 
     public String getInterviewsTitle(){
-        return getText(interviewsTitle);
+        return getText(pagesTitle);
+    }
+
+    public String getUpcomingTitle(){
+        return getText(pagesTitle);
     }
 
 }

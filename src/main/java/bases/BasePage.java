@@ -36,4 +36,8 @@ public abstract class BasePage extends PagesFactory{
     public Boolean isElementPresent(WebElement webElement) {
         return webElement.isDisplayed();
     }
+
+    public void goToPreviousPage(){
+        _webDriver.navigate().back();
+    }
 }

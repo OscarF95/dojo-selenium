@@ -1,32 +1,32 @@
 Java Maven CircleCI 2.0 configuration file
 
-version: 2
+version 2
 
-jobs:
-  build:
-    docker:
-      image: circleci/openjdk:8-jdk
-    working_directory: ~/src/main/java/test
+jobs
+  build
+    docker
+      image circleci/openjdk:8-jdk
+    working_directory ~/src/main/java/test
 
-    environment:
-      MAVEN_OPTS: -Xmx3200m
+    environment
+      MAVEN_OPTS -Xmx3200m
 
-    steps:
+    steps
       - checkout
 
 
-      - restore_cache:
-          keys:
+      - restore_cache
+          keys
             - v1-dependencies-{{ checksum "pom.xml" }}
 
             - v1-dependencies-
 
-      - run: mvn dependency:go-offline
+      - run mvn dependency:go-offline
 
-      - save_cache:
-          paths:
+      - save_cache
+          paths
             - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
+          key v1-dependencies-{{ checksum "pom.xml" }}
 
 
-      - run: mvn test
+      - run mvn test

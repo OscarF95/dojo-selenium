@@ -4,25 +4,43 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestHomePageFactory extends BaseTestCase {
-    String website = "http://dojo.nearsoft.com";
+    String home = "http://dojo.nearsoft.com";
 
     @Test
     public void test_Home_Page_Search(){
-        factoryDojoHomePage = goToWebsite(website);
+        factoryDojoHomePage = goToWebsite(home);
         Assert.assertTrue(factoryDojoHomePage.isInterviewLinkPresent());
 
         factoryDojoHomePage.searchInDojoHomePage("John Sonmez");
+
+        factoryResultsPage = factoryDojoHomePage.goToResults();
+        factoryResultsPage.goToResultDetail();
+
+        Assert.assertEquals(factoryResultsPage.getResultDetailTitle().toLowerCase(), "john sonmez");
     }
 
     @Test
     public void test_Links_From_Home_Page(){
-        factoryDojoHomePage = goToWebsite(website);
+        factoryDojoHomePage = goToWebsite(home);
 
+        // Checking Interviews link
         factoryDojoHomePage.goToInterviews();
-        Assert.assertEquals(factoryDojoHomePage.getInterviewsTitle(),"Interviews");
+        Assert.assertEquals(factoryDojoHomePage.getInterviewsTitle().toLowerCase(),"interviews");
         factoryDojoHomePage.goToPreviousPage();
 
+        // Checking Upcoming Interviews link
         factoryDojoHomePage.goToUpcoming();
-        Assert.assertEquals(factoryDojoHomePage.getUpcomingTitle(), "Upcoming Interviews");
+        Assert.assertEquals(factoryDojoHomePage.getUpcomingTitle().toLowerCase(), "upcoming interviews");
+        factoryDojoHomePage.goToPreviousPage();
+
+        // Checking Travel Edition link
+        factoryDojoHomePage.goToTravelEdition();
+        Assert.assertEquals(factoryDojoHomePage.getTravelEditionTitle().toLowerCase(), "dojolive! travel edition");
+        factoryDojoHomePage.goToPreviousPage();
+
+        // Checking About link
+        factoryDojoHomePage.goToAbout();
+        Assert.assertEquals(factoryDojoHomePage.getAboutTitle().toLowerCase(), "about dojolive!");
+        factoryDojoHomePage.goToPreviousPage();
     }
 }

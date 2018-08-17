@@ -24,6 +24,12 @@ public class FactoryDojoHomePage extends BasePage {
     @FindBy(linkText = "Upcoming")
     WebElement upcomingMenuLink;
 
+    @FindBy(linkText = "Travel Edition")
+    WebElement travelEditionMenuLink;
+
+    @FindBy(linkText = "About")
+    WebElement aboutMenuLink;
+
     @FindBy(tagName = "h1")
     WebElement pagesTitle;
 
@@ -32,10 +38,13 @@ public class FactoryDojoHomePage extends BasePage {
         super(webDriver, pagesFactory);
     }
 
-    public FactoryDojoHomePage searchInDojoHomePage(String searchString){
+    public void searchInDojoHomePage(String searchString){
         inputText(searchBox, searchString);
+    }
+
+    public FactoryResultsPage goToResults(){
         clickElement(searchButton);
-        return withPage().factoryDojoHomePage();
+        return withPage().factoryResultsPage();
     }
 
     public FactoryDojoHomePage goToInterviews(){
@@ -45,6 +54,16 @@ public class FactoryDojoHomePage extends BasePage {
 
     public FactoryDojoHomePage goToUpcoming(){
         clickElement(upcomingMenuLink);
+        return withPage().factoryDojoHomePage();
+    }
+
+    public FactoryDojoHomePage goToTravelEdition(){
+        clickElement(travelEditionMenuLink);
+        return withPage().factoryDojoHomePage();
+    }
+
+    public FactoryDojoHomePage goToAbout() {
+        clickElement(aboutMenuLink);
         return withPage().factoryDojoHomePage();
     }
 
@@ -60,4 +79,11 @@ public class FactoryDojoHomePage extends BasePage {
         return getText(pagesTitle);
     }
 
+    public String getTravelEditionTitle(){
+        return getText(pagesTitle);
+    }
+
+    public String getAboutTitle(){
+        return getText(pagesTitle);
+    }
 }

@@ -42,5 +42,16 @@ public class TestHomePageFactory extends BaseTestCase {
         factoryDojoHomePage.goToAbout();
         Assert.assertEquals(factoryDojoHomePage.getAboutTitle().toLowerCase(), "about dojolive!");
         factoryDojoHomePage.goToPreviousPage();
+
+        // Checking Suggest a Guest! link
+        factoryDojoHomePage.goToSuggestAGuest();
+        Assert.assertEquals(factoryDojoHomePage.getSuggestAGuestTitle().toLowerCase(), "nominate a guest!");
+        factoryDojoHomePage.goToPreviousPage();
+
+        // Checking Contact link
+        factoryDojoHomePage.goToContact();
+        Assert.assertEquals(factoryDojoHomePage.getContactTitle().toLowerCase(), "contact");
+        factoryDojoHomePage.goToPreviousPage();
+        Assert.assertTrue(factoryDojoHomePage.isInterviewLinkPresent());
     }
 }

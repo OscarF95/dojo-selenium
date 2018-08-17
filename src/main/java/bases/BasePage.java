@@ -8,6 +8,9 @@ public abstract class BasePage extends PagesFactory{
     @FindBy(id = "s")
     WebElement searchBox;
 
+    @FindBy(tagName = "h1")
+    WebElement pagesTitle;
+
     private PagesFactory _pagesFactory;
     private WebDriver _webDriver;
 
@@ -29,6 +32,10 @@ public abstract class BasePage extends PagesFactory{
         webElement.sendKeys(inputText);
     }
 
+    public void inputSearchText(String searchString){
+        searchBox.sendKeys(searchString);
+    }
+
     public PagesFactory withPage(){
         return _pagesFactory;
     }
@@ -40,4 +47,9 @@ public abstract class BasePage extends PagesFactory{
     public void goToPreviousPage(){
         _webDriver.navigate().back();
     }
+
+    public String getPageTitle(){
+        return pagesTitle.getText();
+    }
+
 }

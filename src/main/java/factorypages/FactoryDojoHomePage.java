@@ -30,16 +30,18 @@ public class FactoryDojoHomePage extends BasePage {
     @FindBy(linkText = "About")
     WebElement aboutMenuLink;
 
-    @FindBy(tagName = "h1")
-    WebElement pagesTitle;
+    @FindBy(linkText = "Suggest a Guest!")
+    WebElement suggestAGuestMenuLink;
 
+    @FindBy(linkText = "Contact")
+    WebElement contactMenuLink;
 
     public FactoryDojoHomePage(WebDriver webDriver, PagesFactory pagesFactory){
         super(webDriver, pagesFactory);
     }
 
     public void searchInDojoHomePage(String searchString){
-        inputText(searchBox, searchString);
+        inputSearchText(searchString);
     }
 
     public FactoryResultsPage goToResults(){
@@ -67,23 +69,41 @@ public class FactoryDojoHomePage extends BasePage {
         return withPage().factoryDojoHomePage();
     }
 
+    public FactoryDojoHomePage goToSuggestAGuest(){
+        clickElement(suggestAGuestMenuLink);
+        return withPage().factoryDojoHomePage();
+    }
+
+    public FactoryDojoHomePage goToContact(){
+        clickElement(contactMenuLink);
+        return withPage().factoryDojoHomePage();
+    }
+
     public Boolean isInterviewLinkPresent(){
         return isElementPresent(interviewLink);
     }
 
     public String getInterviewsTitle(){
-        return getText(pagesTitle);
+        return getPageTitle();
     }
 
     public String getUpcomingTitle(){
-        return getText(pagesTitle);
+        return getPageTitle();
     }
 
     public String getTravelEditionTitle(){
-        return getText(pagesTitle);
+        return getPageTitle();
     }
 
     public String getAboutTitle(){
-        return getText(pagesTitle);
+        return getPageTitle();
+    }
+
+    public String getSuggestAGuestTitle(){
+        return getPageTitle();
+    }
+
+    public String getContactTitle(){
+        return getPageTitle();
     }
 }

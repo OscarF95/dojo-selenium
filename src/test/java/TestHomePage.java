@@ -1,10 +1,10 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestHomePageFactory extends BaseTestCase {
+public class TestHomePage extends BaseTestCase {
     @Test
     public void test_Home_Page_Search(){
-        factoryDojoHomePage = goToWebsite("http://dojo.nearsoft.com");
+        factoryDojoHomePage = goToHomePage();
         Assert.assertTrue(factoryDojoHomePage.isInterviewLinkPresent());
 
         factoryDojoHomePage.searchInDojoHomePage("John Sonmez");
@@ -17,7 +17,7 @@ public class TestHomePageFactory extends BaseTestCase {
 
     @Test
     public void test_Links_From_Home_Page(){
-        factoryDojoHomePage = goToWebsite("http://dojo.nearsoft.com");
+        factoryDojoHomePage = goToHomePage();
 
         // Checking Interviews link
         factoryDojoHomePage.goToInterviews();

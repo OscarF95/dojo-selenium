@@ -1,7 +1,8 @@
 package bases;
 
-import factorypages.FactoryDojoHomePage;
-import factorypages.FactoryResultsPage;
+import pageobjects.FactoryDojoHomePage;
+import pageobjects.FactoryInterviewsPage;
+import pageobjects.FactoryResultsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -23,6 +24,10 @@ public class PagesFactory {
 
     public FactoryResultsPage factoryResultsPage(){
         return new FactoryResultsPage(getWebDriver(), this);
+    }
+
+    public FactoryInterviewsPage factoryInterviewsPage(){
+        return new FactoryInterviewsPage(getWebDriver(), this);
     }
 
 }

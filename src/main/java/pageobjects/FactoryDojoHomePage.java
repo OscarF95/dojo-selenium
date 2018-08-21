@@ -1,11 +1,10 @@
-package factorypages;
+package pageobjects;
 
 import bases.BasePage;
 import bases.PagesFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class FactoryDojoHomePage extends BasePage {
 
@@ -49,9 +48,9 @@ public class FactoryDojoHomePage extends BasePage {
         return withPage().factoryResultsPage();
     }
 
-    public FactoryDojoHomePage goToInterviews(){
+    public FactoryInterviewsPage goToInterviews(){
         clickElement(interviewsMenuLink);
-        return withPage().factoryDojoHomePage();
+        return withPage().factoryInterviewsPage();
     }
 
     public FactoryDojoHomePage goToUpcoming(){

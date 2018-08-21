@@ -1,4 +1,4 @@
-package factorypages;
+package pageobjects;
 
 import bases.BasePage;
 import bases.PagesFactory;

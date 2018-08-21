@@ -1,7 +1,7 @@
 import bases.PagesFactory;
-import factorypages.FactoryDojoHomePage;
-import factorypages.FactoryInterviewsPage;
-import factorypages.FactoryResultsPage;
+import pageobjects.FactoryDojoHomePage;
+import pageobjects.FactoryInterviewsPage;
+import pageobjects.FactoryResultsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -27,15 +27,15 @@ public class BaseTestCase {
         pagesFactory = new PagesFactory(driver);
     }
 
-    public FactoryDojoHomePage goToWebsite(String website) {
-        driver.get(website);
+    public FactoryDojoHomePage goToHomePage() {
+        driver.get("http://dojo.nearsoft.com");
         return new FactoryDojoHomePage(driver, pagesFactory);
     }
 
-    public FactoryInterviewsPage goToInterviewsPage(String website) {
-        driver.get(website);
-        return new FactoryInterviewsPage(driver, pagesFactory);
-    }
+//    public FactoryInterviewsPage goToInterviewsPage(String website) {
+//        driver.get(website);
+//        return new FactoryInterviewsPage(driver, pagesFactory);
+//    }
 
     @AfterTest
     public void cleanup(){

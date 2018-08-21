@@ -16,7 +16,7 @@ public class TestHomePageFactory extends BaseTestCase {
         factoryResultsPage = factoryDojoHomePage.goToResults();
         factoryResultsPage.goToResultDetail();
 
-        Assert.assertEquals(factoryResultsPage.getResultDetailTitle().toLowerCase(), "john sonmez");
+        Assert.assertEquals(factoryResultsPage.getResultDetailTitle().toLowerCase(), "john sonmes");
     }
 
     @Test

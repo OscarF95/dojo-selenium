@@ -10,7 +10,7 @@ public class TestHomePageFactory extends BaseTestCase {
         factoryDojoHomePage = goToWebsite("http://dojo.nearsoft.com");
         Assert.assertTrue(factoryDojoHomePage.isInterviewLinkPresent());
 
-        factoryDojoHomePage.searchInDojoHomePage("John Sonmes");
+        factoryDojoHomePage.searchInDojoHomePage("John Sonmez");
     }
 
 }

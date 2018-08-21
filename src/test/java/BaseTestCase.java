@@ -1,11 +1,10 @@
 import bases.PagesFactory;
+import org.testng.annotations.*;
 import pageobjects.FactoryDojoHomePage;
 import pageobjects.FactoryInterviewsPage;
 import pageobjects.FactoryResultsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +18,7 @@ public class BaseTestCase {
     FactoryResultsPage factoryResultsPage;
     FactoryInterviewsPage factoryInterviewsPage;
 
-    @BeforeTest
+    @BeforeMethod
     public void setup(){
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -32,12 +31,7 @@ public class BaseTestCase {
         return new FactoryDojoHomePage(driver, pagesFactory);
     }
 
-//    public FactoryInterviewsPage goToInterviewsPage(String website) {
-//        driver.get(website);
-//        return new FactoryInterviewsPage(driver, pagesFactory);
-//    }
-
-    @AfterTest
+    @AfterMethod
     public void cleanup(){
         driver.quit();
     }

@@ -4,8 +4,8 @@ import factorypages.FactoryInterviewsPage;
 import factorypages.FactoryResultsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +19,7 @@ public class BaseTestCase {
     FactoryResultsPage factoryResultsPage;
     FactoryInterviewsPage factoryInterviewsPage;
 
-    @BeforeTest
+    @BeforeMethod
     public void setup(){
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -37,7 +37,7 @@ public class BaseTestCase {
         return new FactoryInterviewsPage(driver, pagesFactory);
     }
 
-    @AfterTest
+    @AfterMethod
     public void cleanup(){
         driver.quit();
     }

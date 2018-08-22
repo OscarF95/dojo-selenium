@@ -1,7 +1,6 @@
 import bases.PagesFactory;
-import factorypages.FactoryDojoHomePage;
-import factorypages.FactoryInterviewsPage;
-import factorypages.FactoryResultsPage;
+import org.testng.annotations.*;
+import pageobjects.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -15,9 +14,14 @@ public class BaseTestCase {
     PagesFactory pagesFactory;
 
     // Add pages factories
-    FactoryDojoHomePage factoryDojoHomePage;
-    FactoryResultsPage factoryResultsPage;
-    FactoryInterviewsPage factoryInterviewsPage;
+    DojoHomePage dojoHomePage;
+    ResultsPage resultsPage;
+    InterviewsPage interviewsPage;
+    UpcomingPage upcomingPage;
+    TravelEditionPage travelEditionPage;
+    AboutPage aboutPage;
+    SuggestAGuestPage suggestAGuestPage;
+    ContactPage contactPage;
 
     @BeforeMethod
     public void setup(){
@@ -27,14 +31,9 @@ public class BaseTestCase {
         pagesFactory = new PagesFactory(driver);
     }
 
-    public FactoryDojoHomePage goToWebsite(String website) {
-        driver.get(website);
-        return new FactoryDojoHomePage(driver, pagesFactory);
-    }
-
-    public FactoryInterviewsPage goToInterviewsPage(String website) {
-        driver.get(website);
-        return new FactoryInterviewsPage(driver, pagesFactory);
+    public DojoHomePage goToHomePage() {
+        driver.get("http://dojo.nearsoft.com");
+        return new DojoHomePage(driver, pagesFactory);
     }
 
     @AfterMethod

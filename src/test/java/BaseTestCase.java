@@ -18,6 +18,8 @@ public class BaseTestCase {
     UpcomingPage upcomingPage;
     TravelEditionPage travelEditionPage;
     AboutPage aboutPage;
+    SuggestAGuestPage suggestAGuestPage;
+    ContactPage contactPage;
 
     @BeforeMethod
     public void setup(){

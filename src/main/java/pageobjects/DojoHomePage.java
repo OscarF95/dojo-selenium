@@ -27,8 +27,7 @@ public class DojoHomePage extends BasePage {
     @FindBy(linkText = "Suggest a Guest!")
     WebElement suggestAGuestMenuLink;
 
-    @FindBy(linkText = "Contact")
-    WebElement contactMenuLink;
+
 
     public DojoHomePage(WebDriver webDriver, PagesFactory pagesFactory){
         super(webDriver, pagesFactory);
@@ -51,16 +50,6 @@ public class DojoHomePage extends BasePage {
     public TravelEditionPage goToTravelEdition(){
         clickElement(travelEditionMenuLink);
         return withPage().travelEditionPage();
-    }
-
-    public DojoHomePage goToSuggestAGuest(){
-        clickElement(suggestAGuestMenuLink);
-        return withPage().dojoHomePage();
-    }
-
-    public DojoHomePage goToContact(){
-        clickElement(contactMenuLink);
-        return withPage().dojoHomePage();
     }
 
     public Boolean isInterviewLinkPresent(){

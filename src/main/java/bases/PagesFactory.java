@@ -40,4 +40,12 @@ public class PagesFactory {
         return new AboutPage(getWebDriver(), this);
     }
 
+    public SuggestAGuestPage suggestAGuestPage(){
+        return new SuggestAGuestPage(getWebDriver(), this);
+    }
+
+    public ContactPage contactPage(){
+        return new ContactPage(getWebDriver(), this);
+    }
+
 }

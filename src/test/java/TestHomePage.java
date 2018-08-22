@@ -38,17 +38,17 @@ public class TestHomePage extends BaseTestCase {
         // Checking About link
         aboutPage = dojoHomePage.goToAbout();
         Assert.assertEquals(aboutPage.getAboutTitle().toLowerCase(), "about dojolive!");
-        dojoHomePage.goToPreviousPage();
+        aboutPage.goToPreviousPage();
 
         // Checking Suggest a Guest! link
-        dojoHomePage.goToSuggestAGuest();
-        Assert.assertEquals(dojoHomePage.getSuggestAGuestTitle().toLowerCase(), "nominate a guest!");
-        dojoHomePage.goToPreviousPage();
+        suggestAGuestPage = dojoHomePage.goToSuggestAGuest();
+        Assert.assertEquals(suggestAGuestPage.getSuggestAGuestTitle().toLowerCase(), "nominate a guest!");
+        suggestAGuestPage.goToPreviousPage();
 
         // Checking Contact link
-        dojoHomePage.goToContact();
-        Assert.assertEquals(dojoHomePage.getContactTitle().toLowerCase(), "contact");
-        dojoHomePage.goToPreviousPage();
+        contactPage = dojoHomePage.goToContact();
+        Assert.assertEquals(contactPage.getContactTitle().toLowerCase(), "contact");
+        contactPage.goToPreviousPage();
         Assert.assertTrue(dojoHomePage.isInterviewLinkPresent());
     }
 }

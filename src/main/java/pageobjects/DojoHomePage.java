@@ -17,17 +17,12 @@ public class DojoHomePage extends BasePage {
     @FindBy(id = "searchsubmit")
     WebElement searchButton;
 
-    @FindBy(linkText = "Interviews")
-    WebElement interviewsMenuLink;
-
     @FindBy(linkText = "Upcoming")
     WebElement upcomingMenuLink;
 
     @FindBy(linkText = "Travel Edition")
     WebElement travelEditionMenuLink;
 
-    @FindBy(linkText = "About")
-    WebElement aboutMenuLink;
 
     @FindBy(linkText = "Suggest a Guest!")
     WebElement suggestAGuestMenuLink;
@@ -48,11 +43,6 @@ public class DojoHomePage extends BasePage {
         return withPage().resultsPage();
     }
 
-    public InterviewsPage goToInterviews(){
-        clickElement(interviewsMenuLink);
-        return withPage().interviewsPage();
-    }
-
     public UpcomingPage goToUpcoming(){
         clickElement(upcomingMenuLink);
         return withPage().upcomingPage();
@@ -61,11 +51,6 @@ public class DojoHomePage extends BasePage {
     public TravelEditionPage goToTravelEdition(){
         clickElement(travelEditionMenuLink);
         return withPage().travelEditionPage();
-    }
-
-    public DojoHomePage goToAbout() {
-        clickElement(aboutMenuLink);
-        return withPage().dojoHomePage();
     }
 
     public DojoHomePage goToSuggestAGuest(){
@@ -80,15 +65,6 @@ public class DojoHomePage extends BasePage {
 
     public Boolean isInterviewLinkPresent(){
         return isElementPresent(interviewLink);
-    }
-
-    public String getInterviewsTitle(){
-        return getPageTitle();
-    }
-
-
-    public String getAboutTitle(){
-        return getPageTitle();
     }
 
     public String getSuggestAGuestTitle(){

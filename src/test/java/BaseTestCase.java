@@ -17,6 +17,7 @@ public class BaseTestCase {
     InterviewsPage interviewsPage;
     UpcomingPage upcomingPage;
     TravelEditionPage travelEditionPage;
+    AboutPage aboutPage;
 
     @BeforeMethod
     public void setup(){

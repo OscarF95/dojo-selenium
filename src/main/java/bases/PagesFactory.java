@@ -36,6 +36,8 @@ public class PagesFactory {
         return new TravelEditionPage(getWebDriver(), this);
     }
 
-
+    public AboutPage aboutPage(){
+        return new AboutPage(getWebDriver(), this);
+    }
 
 }

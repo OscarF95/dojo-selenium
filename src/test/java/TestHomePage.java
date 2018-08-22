@@ -33,11 +33,11 @@ public class TestHomePage extends BaseTestCase {
         // Checking Travel Edition link
         travelEditionPage = dojoHomePage.goToTravelEdition();
         Assert.assertEquals(travelEditionPage.getTravelEditionTitle().toLowerCase(), "dojolive! travel edition");
-        dojoHomePage.goToPreviousPage();
+        travelEditionPage.goToPreviousPage();
 
         // Checking About link
-        dojoHomePage.goToAbout();
-        Assert.assertEquals(dojoHomePage.getAboutTitle().toLowerCase(), "about dojolive!");
+        aboutPage = dojoHomePage.goToAbout();
+        Assert.assertEquals(aboutPage.getAboutTitle().toLowerCase(), "about dojolive!");
         dojoHomePage.goToPreviousPage();
 
         // Checking Suggest a Guest! link

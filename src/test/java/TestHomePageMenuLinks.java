@@ -1,21 +1,7 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestHomePage extends BaseTestCase {
-    @Test
-    public void test_Home_Page_Search(){
-        dojoHomePage = goToHomePage();
-        Assert.assertTrue(dojoHomePage.isInterviewLinkPresent());
-
-        dojoHomePage.searchInDojoHomePage("John Sonmez");
-
-        resultsPage = dojoHomePage.goToResults();
-        resultsPage.getSearchText();
-        resultsPage.goToResultDetail();
-
-        Assert.assertEquals(resultsPage.getResultDetailTitle().toLowerCase(), "john sonmez");
-    }
-
+public class TestHomePageMenuLinks extends BaseTestCase {
     @Test
     public void test_Links_From_Home_Page(){
         dojoHomePage = goToHomePage();

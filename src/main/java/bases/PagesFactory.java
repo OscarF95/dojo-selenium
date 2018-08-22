@@ -1,8 +1,6 @@
 package bases;
 
-import pageobjects.FactoryDojoHomePage;
-import pageobjects.FactoryInterviewsPage;
-import pageobjects.FactoryResultsPage;
+import pageobjects.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -18,16 +16,26 @@ public class PagesFactory {
         return _webDriver;
     }
 
-    public FactoryDojoHomePage factoryDojoHomePage(){
-        return new FactoryDojoHomePage(getWebDriver(), this);
+    public DojoHomePage dojoHomePage(){
+        return new DojoHomePage(getWebDriver(), this);
     }
 
-    public FactoryResultsPage factoryResultsPage(){
-        return new FactoryResultsPage(getWebDriver(), this);
+    public ResultsPage resultsPage(){
+        return new ResultsPage(getWebDriver(), this);
     }
 
-    public FactoryInterviewsPage factoryInterviewsPage(){
-        return new FactoryInterviewsPage(getWebDriver(), this);
+    public InterviewsPage interviewsPage(){
+        return new InterviewsPage(getWebDriver(), this);
     }
+
+    public UpcomingPage upcomingPage(){
+        return new UpcomingPage(getWebDriver(), this);
+    }
+
+    public TravelEditionPage travelEditionPage(){
+        return new TravelEditionPage(getWebDriver(), this);
+    }
+
+
 
 }

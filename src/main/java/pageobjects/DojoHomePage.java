@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class FactoryDojoHomePage extends BasePage {
+public class DojoHomePage extends BasePage {
 
     @FindBy(linkText = "WATCH AN INTERVIEW!")
     WebElement interviewLink;
@@ -35,7 +35,7 @@ public class FactoryDojoHomePage extends BasePage {
     @FindBy(linkText = "Contact")
     WebElement contactMenuLink;
 
-    public FactoryDojoHomePage(WebDriver webDriver, PagesFactory pagesFactory){
+    public DojoHomePage(WebDriver webDriver, PagesFactory pagesFactory){
         super(webDriver, pagesFactory);
     }
 
@@ -43,39 +43,39 @@ public class FactoryDojoHomePage extends BasePage {
         inputSearchText(searchString);
     }
 
-    public FactoryResultsPage goToResults(){
+    public ResultsPage goToResults(){
         clickElement(searchButton);
-        return withPage().factoryResultsPage();
+        return withPage().resultsPage();
     }
 
-    public FactoryInterviewsPage goToInterviews(){
+    public InterviewsPage goToInterviews(){
         clickElement(interviewsMenuLink);
-        return withPage().factoryInterviewsPage();
+        return withPage().interviewsPage();
     }
 
-    public FactoryDojoHomePage goToUpcoming(){
+    public UpcomingPage goToUpcoming(){
         clickElement(upcomingMenuLink);
-        return withPage().factoryDojoHomePage();
+        return withPage().upcomingPage();
     }
 
-    public FactoryDojoHomePage goToTravelEdition(){
+    public TravelEditionPage goToTravelEdition(){
         clickElement(travelEditionMenuLink);
-        return withPage().factoryDojoHomePage();
+        return withPage().travelEditionPage();
     }
 
-    public FactoryDojoHomePage goToAbout() {
+    public DojoHomePage goToAbout() {
         clickElement(aboutMenuLink);
-        return withPage().factoryDojoHomePage();
+        return withPage().dojoHomePage();
     }
 
-    public FactoryDojoHomePage goToSuggestAGuest(){
+    public DojoHomePage goToSuggestAGuest(){
         clickElement(suggestAGuestMenuLink);
-        return withPage().factoryDojoHomePage();
+        return withPage().dojoHomePage();
     }
 
-    public FactoryDojoHomePage goToContact(){
+    public DojoHomePage goToContact(){
         clickElement(contactMenuLink);
-        return withPage().factoryDojoHomePage();
+        return withPage().dojoHomePage();
     }
 
     public Boolean isInterviewLinkPresent(){
@@ -86,13 +86,6 @@ public class FactoryDojoHomePage extends BasePage {
         return getPageTitle();
     }
 
-    public String getUpcomingTitle(){
-        return getPageTitle();
-    }
-
-    public String getTravelEditionTitle(){
-        return getPageTitle();
-    }
 
     public String getAboutTitle(){
         return getPageTitle();

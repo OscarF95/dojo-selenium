@@ -3,6 +3,7 @@ package bases;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pageobjects.InterviewsPage;
 
 public abstract class BasePage extends PagesFactory{
     @FindBy(id = "s")
@@ -10,6 +11,9 @@ public abstract class BasePage extends PagesFactory{
 
     @FindBy(tagName = "h1")
     WebElement pagesTitle;
+
+    @FindBy(linkText = "Interviews")
+    WebElement interviewsMenuLink;
 
     private PagesFactory _pagesFactory;
     private WebDriver _webDriver;
@@ -50,6 +54,11 @@ public abstract class BasePage extends PagesFactory{
 
     public String getPageTitle(){
         return pagesTitle.getText();
+    }
+
+    public InterviewsPage goToInterviews(){
+        clickElement(interviewsMenuLink);
+        return withPage().interviewsPage();
     }
 
 }

@@ -4,50 +4,51 @@ import org.testng.annotations.Test;
 public class TestHomePage extends BaseTestCase {
     @Test
     public void test_Home_Page_Search(){
-        factoryDojoHomePage = goToHomePage();
-        Assert.assertTrue(factoryDojoHomePage.isInterviewLinkPresent());
+        dojoHomePage = goToHomePage();
+        Assert.assertTrue(dojoHomePage.isInterviewLinkPresent());
 
-        factoryDojoHomePage.searchInDojoHomePage("John Sonmez");
+        dojoHomePage.searchInDojoHomePage("John Sonmez");
 
-        factoryResultsPage = factoryDojoHomePage.goToResults();
-        factoryResultsPage.goToResultDetail();
+        resultsPage = dojoHomePage.goToResults();
+        resultsPage.getSearchText();
+        resultsPage.goToResultDetail();
 
-        Assert.assertEquals(factoryResultsPage.getResultDetailTitle().toLowerCase(), "john sonmez");
+        Assert.assertEquals(resultsPage.getResultDetailTitle().toLowerCase(), "john sonmez");
     }
 
     @Test
     public void test_Links_From_Home_Page(){
-        factoryDojoHomePage = goToHomePage();
+        dojoHomePage = goToHomePage();
 
         // Checking Interviews link
-        factoryDojoHomePage.goToInterviews();
-        Assert.assertEquals(factoryDojoHomePage.getInterviewsTitle().toLowerCase(),"interviews");
-        factoryDojoHomePage.goToPreviousPage();
+        interviewsPage = dojoHomePage.goToInterviews();
+        Assert.assertEquals(interviewsPage.getInterviewsTitle().toLowerCase(),"interviews");
+        interviewsPage.goToPreviousPage();
 
         // Checking Upcoming Interviews link
-        factoryDojoHomePage.goToUpcoming();
-        Assert.assertEquals(factoryDojoHomePage.getUpcomingTitle().toLowerCase(), "upcoming interviews");
-        factoryDojoHomePage.goToPreviousPage();
+        upcomingPage = dojoHomePage.goToUpcoming();
+        Assert.assertEquals(upcomingPage.getUpcomingTitle().toLowerCase(), "upcoming interviews");
+        upcomingPage.goToPreviousPage();
 
         // Checking Travel Edition link
-        factoryDojoHomePage.goToTravelEdition();
-        Assert.assertEquals(factoryDojoHomePage.getTravelEditionTitle().toLowerCase(), "dojolive! travel edition");
-        factoryDojoHomePage.goToPreviousPage();
+        travelEditionPage = dojoHomePage.goToTravelEdition();
+        Assert.assertEquals(travelEditionPage.getTravelEditionTitle().toLowerCase(), "dojolive! travel edition");
+        dojoHomePage.goToPreviousPage();
 
         // Checking About link
-        factoryDojoHomePage.goToAbout();
-        Assert.assertEquals(factoryDojoHomePage.getAboutTitle().toLowerCase(), "about dojolive!");
-        factoryDojoHomePage.goToPreviousPage();
+        dojoHomePage.goToAbout();
+        Assert.assertEquals(dojoHomePage.getAboutTitle().toLowerCase(), "about dojolive!");
+        dojoHomePage.goToPreviousPage();
 
         // Checking Suggest a Guest! link
-        factoryDojoHomePage.goToSuggestAGuest();
-        Assert.assertEquals(factoryDojoHomePage.getSuggestAGuestTitle().toLowerCase(), "nominate a guest!");
-        factoryDojoHomePage.goToPreviousPage();
+        dojoHomePage.goToSuggestAGuest();
+        Assert.assertEquals(dojoHomePage.getSuggestAGuestTitle().toLowerCase(), "nominate a guest!");
+        dojoHomePage.goToPreviousPage();
 
         // Checking Contact link
-        factoryDojoHomePage.goToContact();
-        Assert.assertEquals(factoryDojoHomePage.getContactTitle().toLowerCase(), "contact");
-        factoryDojoHomePage.goToPreviousPage();
-        Assert.assertTrue(factoryDojoHomePage.isInterviewLinkPresent());
+        dojoHomePage.goToContact();
+        Assert.assertEquals(dojoHomePage.getContactTitle().toLowerCase(), "contact");
+        dojoHomePage.goToPreviousPage();
+        Assert.assertTrue(dojoHomePage.isInterviewLinkPresent());
     }
 }

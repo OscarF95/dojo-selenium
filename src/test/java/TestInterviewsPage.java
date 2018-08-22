@@ -4,15 +4,15 @@ import org.testng.annotations.Test;
 public class TestInterviewsPage extends BaseTestCase {
     @Test
     public void test_Interviews_Page_elements(){
-        factoryDojoHomePage = goToHomePage();
+        dojoHomePage = goToHomePage();
 
-        factoryInterviewsPage = factoryDojoHomePage.goToInterviews();
+        interviewsPage = dojoHomePage.goToInterviews();
 
-        Assert.assertTrue(factoryInterviewsPage.isInterviewsTitlePresent());
+        Assert.assertTrue(interviewsPage.isInterviewsTitlePresent());
 
-        factoryInterviewsPage.goToOlderInterviews();
+        interviewsPage.goToOlderInterviews();
 
-        Assert.assertTrue(factoryInterviewsPage.isInterviewsTitlePresent());
+        Assert.assertTrue(interviewsPage.isInterviewsTitlePresent());
 
     }
 

@@ -1,18 +1,17 @@
 import bases.PagesFactory;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.*;
-import pageobjects.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import pageobjects.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTestCase {
-    WebDriver driver;
+    private WebDriver driver;
 
-    PagesFactory pagesFactory;
+    private PagesFactory pagesFactory;
 
     // Add pages factories
     DojoHomePage dojoHomePage;
@@ -35,7 +34,7 @@ public class BaseTestCase {
         pagesFactory = new PagesFactory(driver);
     }
 
-    public DojoHomePage goToHomePage() {
+    DojoHomePage goToHomePage() {
         driver.get("http://dojo.nearsoft.com");
         return new DojoHomePage(driver, pagesFactory);
     }

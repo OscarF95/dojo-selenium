@@ -1,4 +1,5 @@
 import bases.PagesFactory;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import pageobjects.*;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +26,10 @@ public class BaseTestCase {
 
     @BeforeMethod
     public void setup(){
-        driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless", "window-size=1200,1100");
+
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         pagesFactory = new PagesFactory(driver);

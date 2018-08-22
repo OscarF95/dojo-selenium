@@ -24,6 +24,12 @@ public abstract class BasePage extends PagesFactory{
     @FindBy(linkText = "Contact")
     WebElement contactMenuLink;
 
+    @FindBy(linkText = "Upcoming")
+    WebElement upcomingMenuLink;
+
+    @FindBy(linkText = "Travel Edition")
+    WebElement travelEditionMenuLink;
+
     private PagesFactory _pagesFactory;
     private WebDriver _webDriver;
 
@@ -70,6 +76,16 @@ public abstract class BasePage extends PagesFactory{
         return withPage().interviewsPage();
     }
 
+    public UpcomingPage goToUpcoming(){
+        clickElement(upcomingMenuLink);
+        return withPage().upcomingPage();
+    }
+
+    public TravelEditionPage goToTravelEdition(){
+        clickElement(travelEditionMenuLink);
+        return withPage().travelEditionPage();
+    }
+
     public AboutPage goToAbout(){
         clickElement(aboutMenuLink);
         return withPage().aboutPage();
@@ -84,5 +100,4 @@ public abstract class BasePage extends PagesFactory{
         clickElement(contactMenuLink);
         return withPage().contactPage();
     }
-
 }

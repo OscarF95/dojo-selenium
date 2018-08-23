@@ -11,9 +11,6 @@ public class DojoHomePage extends BasePage {
     @FindBy(linkText = "WATCH AN INTERVIEW!")
     WebElement interviewLink;
 
-    @FindBy(id = "s")
-    WebElement searchBox;
-
     @FindBy(id = "searchsubmit")
     WebElement searchButton;
 
